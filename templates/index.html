@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>AGE CALCULATOR</h2>
+        <p class="description">
+            Age Calculator is a free online tool to calculate the age or time difference between
+            two dates. The calculated age will be displayed in years and months.
+        </p>
+        <form method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <button type="submit">CALCULATE</button>
+        </form>
+        {% if error %}
+            <div class="error">
+                <p style="color: red;">⚠️ {{ error }}</p>
+            </div>
+        {% endif %}
+        {% if name and age_years is defined %}
+            <div class="result">
+                <h2>🎉 Hello, {{ name }}!</h2>
+                <p>You are <strong>{{ age_years }}</strong> years and <strong>{{ age_months }}</strong> months old.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
